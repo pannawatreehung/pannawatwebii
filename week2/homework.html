@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Registration Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #7A00FF; /* ม่วงหลัก */
+            --secondary-color: #FFEB3B; /* เหลืองเน้น */
+            --bg-color: #f0f2f5;
+            --text-color: #333;
+            --border-radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box; /* สำคัญสำหรับการจัดวาง */
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 450px; /* ปรับให้เล็กลงเล็กน้อย */
+            padding: 30px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 28px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--text-color);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]) {
+            width: 100%;
+            padding: 12px;
+            border-radius: var(--border-radius);
+            border: 2px solid #ddd;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 5px rgba(122, 0, 255, 0.3);
+            outline: none;
+        }
+        
+        input[type="color"] {
+            height: 40px;
+            padding: 0;
+            border: 2px solid #ddd;
+            width: 100%;
+            cursor: pointer;
+            border-radius: var(--border-radius);
+        }
+
+        /* Checkbox and File Label adjustments */
+        input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        .file-label {
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        /* Range Slider Styling */
+        .range-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            background: #ddd;
+            height: 8px;
+            border-radius: 5px;
+            flex-grow: 1;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            cursor: pointer;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .range-value {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 18px;
+            width: 30px;
+            text-align: right;
+        }
+        
+        /* Buttons */
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            width: 50%;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: var(--border-radius);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #6a00e0; /* ม่วงเข้มขึ้น */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(122, 0, 255, 0.3);
+        }
+
+        input[type="reset"] {
+            background-color: #ccc;
+            color: var(--text-color);
+        }
+
+        input[type="reset"]:hover {
+            background-color: #bbb;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .form-container {
+                padding: 20px;
+                margin: 10px;
+            }
+            .button-container {
+                flex-direction: column;
+            }
+            input[type="submit"],
+            input[type="reset"] {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>✨ Register Account ✨</h2>
+        <form id="myForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Must be at least 8 characters" required>
+            </div>
+
+            <div class="form-group">
+                <label for="tel">Phone Number</label>
+                <input type="tel" id="tel" placeholder="e.g., 08x-xxx-xxxx" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" required>
+            </div>
+
+            <div class="form-group">
+                <label for="color">Favorite Color</label>
+                <input type="color" id="color" value="#7A00FF">
+            </div>
+
+            <div class="form-group">
+                <label class="file-label" for="file">Upload Profile Picture</label>
+                <input type="file" id="file" accept="image/*">
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age (Range)</label>
+                <div class="range-container">
+                    <input type="range" id="age" min="18" max="100" value="25">
+                    <span class="range-value" id="rangeValue">25</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="terms" style="font-weight: normal;">
+                    <input type="checkbox" id="terms" required> I agree to the <a href="#" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">terms and conditions</a>
+                </label>
+            </div>
+
+            <div class="button-container">
+                <input type="submit" value="Sign Up Now">
+                <input type="reset" value="Clear Form">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript เดิมของคุณยังใช้งานได้ดี แต่ผมนำมาใส่ไว้ในแท็ก <script> ด้านล่างเพื่อให้ง่ายต่อการจัดการ
+        // Update the range value dynamically
+        const rangeInput = document.getElementById('age');
+        const rangeValue = document.getElementById('rangeValue');
+        
+        rangeInput.addEventListener('input', function() {
+          rangeValue.textContent = rangeInput.value;
+        });
+
+        // Form submission logic
+        document.getElementById('myForm').addEventListener('submit', function(e) {
+          e.preventDefault();
+
+          const name = document.getElementById('name').value;
+          const email = document.getElementById('email').value;
+          const password = document.getElementById('password').value;
+          const phone = document.getElementById('tel').value;
+          const dob = document.getElementById('dob').value;
+          const color = document.getElementById('color').value;
+          const terms = document.getElementById('terms').checked;
+          const file = document.getElementById('file').files[0];
+          const age = document.getElementById('age').value;
+          
+          let fileInfo = file ? file.name : 'None';
+          if (file && file.size > 0) {
+              fileInfo += ` (${(file.size / 1024).toFixed(2)} KB)`;
+          }
+
+          // Show alert with form data
+          alert(`✅ Form submitted successfully!
+          
+          --- Data Summary ---
+          Name: ${name}
+          Email: ${email}
+          Password: ${'*'.repeat(password.length)}
+          Phone: ${phone}
+          Date of Birth: ${dob}
+          Favorite Color: ${color}
+          Age: ${age}
+          Terms agreed: ${terms ? 'Yes' : 'No'}
+          Profile Picture: ${fileInfo}
+          
+          (In a real app, this data would be sent to a server.)`);
+          
+          // Optional: Clear form after submission (uncomment if needed)
+          // this.reset();
+        });
+    </script>
+</body>
+</html>

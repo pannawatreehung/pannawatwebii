@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ทดสอบ Web Event</title>
+    <style>
+        input {
+            height: 30px;
+            width: 300;
+            border-radius: 20;
+            font-size: 30;
+            color: black;
+        }
+
+        select {
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 30;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>ชื่อ-นามสกุล</h2>
+    <p id="show-msg">ยินดีต้อนรับ: </p>
+    <input id="msg-input" placeholder="กรุณากรอกชื่อ-นามสกุล" type="text">
+
+    <h2>ภาษาโปรแกรมที่ชอบ</h2>
+    <p id="show-select-msg">โปรดเลือกภาษาโปรแกรม </p>
+    <select id="select-input">
+        <option>โปรดเลือกภาษาโปรแกรม</option>
+        <option>Javascript</option>
+        <option>Python</option>
+        <option>Go</option>
+    </select>
+
+    <script>
+        const msgInputElement = document.getElementById("msg-input")
+        console.log(msgInputElement)
+        msgInputElement.addEventListener("input", function () {
+            const msg = this.value
+            const showMsgElement = document.getElementById("show-msg")
+            showMsgElement.innerText = 'ยินดีต้อนรับ: ' + msg
+        })
+
+        const msgSelectElement = document.getElementById("select-input")
+        console.log(msgInputElement)
+        msgSelectElement.addEventListener("input", function () {
+            const msg = this.value
+            const showMsgElement = document.getElementById("show-select-msg")
+            showMsgElement.innerText = 'ภาษาที่คุณเลือก: ' + msg
+        })
+    </script>
+
+</body>
+
+</html>
