@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Borrow Form</title>
+
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="app-bg">
+
+    <main class="card">
+         <header class="card-header">
+            <h1>แบบฟอร์มยืมหนังสือ</h1>
+            <p>ระบบลงทะเบียนยืมหนังสือสำหรับนักศึกษา</p>
+        </header>
+
+        <form id="borrowForm" class="form">
+
+            <div class="form-group">
+                <label>รหัสนักศึกษา</label>
+                <input type="text" id="studentId" placeholder="เช่น 6601234567">
+            </div>
+
+            <div class="form-group">
+                <label>ชื่อ</label>
+                <input type="text" id="firstname" placeholder="กรุณาระบุชื่อ">
+            </div>
+
+            <div class="form-group">
+                <label>นามสกุล</label>
+                <input type="text" id="lastname" placeholder="กรุณาระบุนามสกุล">
+            </div>
+
+            <div class="form-group full">
+                <label>หนังสือที่ต้องการยืม</label>
+                <input type="text" id="bookId" placeholder="กรุณาระบุรหัสหรือชื่อหนังสือ">
+            </div>
+
+            <div class="form-group full">
+                <label>ระยะเวลายืม</label>
+                <textarea id="borrowTime" rows="3"
+                    placeholder="เช่น 1 มกราคม 2568 - 7 มกราคม 2568"></textarea>
+            </div>
+
+            <div class="actions">
+                <button type="reset" class="btn secondary">ล้างข้อมูล</button>
+                <button type="submit" class="btn primary">บันทึกข้อมูล</button>
+            </div>
+
+        </form>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

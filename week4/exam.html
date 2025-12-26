@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta>
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <title>Week4 - Project Overview</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div>
+        <div>
+         <h1 id="greeting">สวัสดีครับคุณ [ชื่อ]</h1>
+        </div>
+        <div>
+            <button onclick="showUserInfo()">แสดงข้อมูลผู้ใช้</button>
+            <button onclick="window.location.reload()">รีเฟรชหน้า</button>
+            <button onclick="openNewWindow()">เปิดหน้าต่างใหม่</button>
+        </div>
+
+    </div>
+    <script>
+    const userName = window.prompt("กรุณากรอกชื่อของคุณ");
+    if (userName) {
+        document.getElementById("greeting").innerText = `สวัสดีคุณ ${userName}`;
+    }
+
+    function showUserInfo() {
+        const userAgent = navigator.userAgent;
+        const language = navigator.language;
+        const width = screen.width;
+        const height = screen.height;
+        alert(`ข้อมูลผู้ใช้:\nUser Agent; ${userAgent}\nLanguage; ${language}\nScreen Width; ${width}\nScreen Height; ${height}`)
+
+    }
+
+    function openNewWindow() {
+        window.open("https://www.youtube.com/watch?v=vYQd7Aoa6ik&list=RDvYQd7Aoa6ik&start_radio=1")
+    }
+    </script>
+</body>
+
+</html>
